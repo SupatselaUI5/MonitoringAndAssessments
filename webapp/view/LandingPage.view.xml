@@ -1,0 +1,59 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="gdsd.Monitoring.controller.LandingPage">
+	<App>
+		<pages>
+			<Page showHeader="false" backgroundDesign="Solid">
+				<content>
+					<HBox width="100%" alignContent="Center" alignItems="Center" class="sapUiSmallMarginBottom" justifyContent="Center">
+						<items>
+							<Image width="100%" height="auto" src="pictures/social.jpg" backgroundPosition="center"/>
+						</items>
+					</HBox>
+					<HBox width="100%" alignContent="Center" alignItems="Center" class="sapUiSmallMarginBottom" justifyContent="Center" direction="Inherit" wrap="Wrap">
+						<items>
+							<Text text="{i18n>cyccMonitoring}" textAlign="Center" width="auto"/>
+						</items>
+					</HBox>
+					<Table class="sapUiMediumMarginTop">
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="NAME OF OFFICIAL:"/>
+									<Input width="100%" enabled="false"/></cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<Text text="TYPE OF VISIT:"/>
+									<ComboBox xmlns="sap.m"  width="100%">
+									    <items>
+									        <core:Item xmlns:core="sap.ui.core" key="item-1-key" text="Item 1 Text"/>
+									        <core:Item xmlns:core="sap.ui.core" key="item-2-key" text="Item 2 Text"/>
+									        </items>
+									    
+									</ComboBox></cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<Text text="DATE OF VISIT:"/><DatePicker id="DP_Visit" displayFormat="short" change="handleChange" class="sapUiSmallMarginBottom" enabled="false"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+						<columns>
+							<Column/>
+							<Column/>
+						</columns>
+					</Table>
+				</content>
+				<footer>
+					<Toolbar width="100%">
+						<content>
+							<Button  text="Cancel" press="action" xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+								action:wiring="\{'press':\{'navigation':\{'routeName':'RouteHomePage'\}\}\}" type="Reject"/>
+							<ToolbarSpacer/>
+							<Button xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" text="Proceed" width="auto" type="Accept" press="action" action:wiring="\{'press':\{'navigation':\{'routeName':'Monitoring_CYCC'\}\}\}"/>
+						</content>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

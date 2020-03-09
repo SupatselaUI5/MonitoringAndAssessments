@@ -1,0 +1,498 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="gdsd.Monitoring.controller.Monitoring_CYCC">
+	<App>
+		<pages>
+			<Page>
+				<content>
+					<ObjectHeader title="CYCC Organisation" intro="location" introActive="true" titleActive="true" icon="sap-icon://functional-location"/>
+					<IconTabBar id="IconBar">
+						<items>
+							<IconTabFilter text="IDENTIFY" icon="sap-icon://account" key="Icon1">
+								<content>
+									<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout">
+										<sap.ui.layout.form:content>
+											<core:Title text="1. IDENTIFYING PARTICULARS" icon="sap-icon://account"/>
+											<Label text="Name of the facility"/>
+											<Input width="100%" enabled="false"/>
+											<Label text="Type of CYCC"/>
+											<Input width="100%" id="__input2" enabled="false"/>
+											<Label text="Street address " width="100%"/>
+											<Input width="100%" enabled="false"/>
+											<Label text="Postal address" width="100%"/>
+											<Input width="100%" enabled="false"/>
+											<Label text="Name of contact person " width="100%"/>
+											<Input width="100%" id="__input5" enabled="false"/>
+											<Label text="Telephone number" width="100%"/>
+											<Input width="100%" id="__input6" enabled="false"/>
+											<Label text="Cell number " width="100%"/>
+											<Input width="100%" id="__input7" enabled="false"/></sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+									<FlexBox width="100%" alignContent="Center" alignItems="Center" class="sapUiMediumMarginBottom" justifyContent="Center">
+										<items>
+											<Button text="Next" width="100px" icon="sap-icon://navigation-right-arrow" iconFirst="false" press="onIdentifyNextPress"/>
+										</items>
+									</FlexBox>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter text="MANAGEMENT" icon="sap-icon://manager" iconColor="Critical" key="Icon2">
+								<content>
+									<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout" id="__form1">
+										<sap.ui.layout.form:content>
+											<core:Title text="2. MANAGEMENT" icon="sap-icon://manager"/>
+											<core:Title text="2.1 Governance"/>
+											<Text text="Does the organisation have management committee?"/>
+											<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+												<buttons>
+													<RadioButton selected="true" groupName="__group0" text="YES"/>
+													<RadioButton groupName="__group0" text="NO"/></buttons>
+											</RadioButtonGroup>
+											<Text text="How many committee members? "/>
+											<Input width="100%" id="__input8"/>
+											<Text text="Clearly defined management responsibilities are set out in job description and policies"/>
+											<RadioButtonGroup width="100%" columns="2" selectedIndex="-1" id="__group0">
+												<buttons>
+													<RadioButton selected="true" groupName="__group0" text="YES"/>
+													<RadioButton groupName="__group0" text="NO"/></buttons>
+											</RadioButtonGroup>
+											<TextArea placeholder="Comments"/>
+											<core:Title text="2.2 Staff composition"/>
+											<Text text="Total number on staff members and their qualifications (Please verify) annexture A"/>
+											<Input width="100%" id="__input9"/>
+											<Text text="Are policies and procedures available in writing to all staff and other relevant parties?"/>
+											<RadioButtonGroup width="100%" columns="2" selectedIndex="-1" id="__group1">
+												<buttons>
+													<RadioButton selected="true" groupName="__group1" text="YES"/>
+													<RadioButton groupName="__group1" text="NO"/></buttons>
+											</RadioButtonGroup>
+											<TextArea placeholder="Comments"/>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+									<FlexBox width="100%" alignContent="Center" alignItems="Center" justifyContent="Center">
+										<items>
+											<Button text="Previous" icon="sap-icon://navigation-left-arrow" width="auto" press="onManagementPrevPress" class="sapUiTinyMarginEnd"/>
+											<Button text="Next" width="auto" icon="sap-icon://navigation-right-arrow" press="onManagementNextPress" iconFirst="false"/>
+										</items>
+									</FlexBox>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter text="RECORDS" icon="sap-icon://database" iconColor="Negative" key="Icon3">
+								<content>
+									<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout" id="__form3">
+										<sap.ui.layout.form:content>
+											<core:Title text="4. RECORD KEEPING" icon="sap-icon://database"/>
+											<Text text="Does the organisation have proper record keeping system in place?"/>
+											<RadioButtonGroup width="100%" columns="2" selectedIndex="-1" id="__group2">
+												<buttons>
+													<RadioButton selected="true" groupName="__group2" text="YES"/>
+													<RadioButton groupName="__group2" text="NO"/></buttons>
+											</RadioButtonGroup>
+											<Text text="Please list the registers and files available (case manager to verify)"/>
+											<Table noDataText="Click on the &quot;+&quot; to add items" id="tblFiles" mode="Delete" delete="onDeleteItem">
+												<columns>
+													<Column id="column0" width="100%">
+														<header>
+															<Label text="Files and Registers" id="label19"/>
+														</header>
+													</Column>
+												</columns>
+												<headerToolbar>
+													<Toolbar width="100%" id="toolbar1">
+														<content>
+															<ToolbarSpacer id="spacer0"/>
+															<Button xmlns="sap.m" icon="sap-icon://add" press="onAddItems"/>
+														</content>
+													</Toolbar>
+												</headerToolbar>
+											</Table>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+									<FlexBox width="100%" alignContent="Center" alignItems="Center" justifyContent="Center">
+										<items>
+											<Button text="Previous" icon="sap-icon://navigation-left-arrow" width="auto" press="onIdentifyNextPress" class="sapUiTinyMarginEnd"/>
+											<Button text="Next" width="auto" icon="sap-icon://navigation-right-arrow" press="onRecordNextPress" iconFirst="false"/>
+										</items>
+									</FlexBox>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter text="PROGRAMMES" icon="sap-icon://task" iconColor="Neutral" key="Icon4">
+								<content>
+									<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout" id="__form4">
+										<sap.ui.layout.form:content>
+											<core:Title text="5. PROGRAMMES" icon="sap-icon://task"/>
+											<Text text="Please indicate the types of programmes provided by the organization"/>
+											<List>
+												<items>
+													<StandardListItem type="Active" title="Programme 1" description="Description text" icon="sap-icon://picture"/>
+													<StandardListItem type="Active" title="Programme 2" description="Description text" icon="sap-icon://picture"/>
+												</items>
+											</List>
+											<Text text="Are all children participating in the program assessed prior to admission"/>
+											<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+												<buttons>
+													<RadioButton selected="true" groupName="__group3" text="Always"/>
+													<RadioButton groupName="__group3" text="Sometimes"/>
+													<RadioButton groupName="__group3" text="Never "/></buttons>
+											</RadioButtonGroup>
+											<TextArea placeholder="Comments"/>
+											<Text text="Is the child’s progress monitored after every session in relation to program and individual outcome?"/>
+											<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+												<buttons>
+													<RadioButton selected="true" groupName="__group3" text="Always"/>
+													<RadioButton groupName="__group3" text="Sometimes"/>
+													<RadioButton groupName="__group3" text="Never "/></buttons>
+											</RadioButtonGroup>
+											<TextArea placeholder="Comments"/>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+									<FlexBox width="100%" alignContent="Center" alignItems="Center" justifyContent="Center">
+										<items>
+											<Button text="Previous" icon="sap-icon://navigation-left-arrow" width="auto" press="onManagementNextPress" class="sapUiTinyMarginEnd"/>
+											<Button text="Next" width="auto" icon="sap-icon://navigation-right-arrow" press="onProgramNextPress" iconFirst="false"/>
+										</items>
+									</FlexBox>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter text="NORMS" icon="sap-icon://list" key="Icon5">
+								<content>
+									<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout" id="__form5">
+										<sap.ui.layout.form:content>
+											<core:Title text="6. NORMS AND STANDARDS" icon="sap-icon://list"/>
+											<Text
+												text="Use all the compliance indicators for measurement Formula: number of compliant indicator divided by a total number of indicators x 100 = percentage performance per facility (%) e.g. Y (total number of standards CYCC compliant with) x 100 13 (total number of norms and standards) &#9; = %"/>
+											<core:Title text="6.1 Residential Care Programme"/>
+											<Text
+												text="Does the CYCC have reasonable measures in place to ensure that staff and children are safe from the risk of fire, accidents and hazards? "/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<Text
+												text="Does the CYCC provide a the service in a safe environment where children are protected from physical, social and emotional harm?"/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<core:Title text="6.2 Therapeutic Programme"/>
+											<Text text="Do children receive emotional and social care?"/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<Text
+												text="Does the CYCC provide effective and appropriate developmental assessment and referral services which will lead to an appropriate placement"/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<core:Title text="6.3 Developmental Programmes"/>
+											<Text text="Does the CYCC have plan and programme of care and development?"/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<Text text="Does every child participate in formulating their care and development plans"/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<core:Title text="6.4 Permanency Plans for children"/>
+											<Text text="Does each child have permanency plan?"/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<Text text="Does each child participate in the development of the permanency plan?"/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<core:Title text="6.5 Individual Developmental Plans (IDPs)"/>
+											<Text text="Does each child participate in formulating his/her IDPs?"/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<Text text="Does children receive service according to their IDPs?"/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<core:Title text="6.6 Temporary Safe Care"/>
+											<Text text="What is the minimum period for children placed in the temporary safe care?"/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<Text text="Does the CYCC have temporary safe care?"/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<core:Title text="6.7 Protection from abuse and neglect"/>
+											<Text text="Does the CYCC protect children from physical, social, emotional Harm and threats from themselves and others ?"/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<Text text="Does the CYCC have incident register and a policy and procedures regarding reportable incident? "/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<core:Title text="6.8 Assessment of Children"/>
+											<Text text="Does the CYCC conduct assessment of children within 48 hours of admission ? "/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<Text text="Does the assessment of a child conducted by multidisciplinary Team ?"/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<core:Title text="6.9 Family reunification and Integration"/>
+											<Text text="Does the CYCC have reunification plan for each child ? "/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<core:Title text="6.10 Aftercare"/>
+											<Text text="Does the CYCC provide support re: Psychosocial support,independent leaving, family and community integration ? "/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<core:Title text="6.11 Access to and provision of adequate health care"/>
+											<Text text="Does children with disability or chronic illness have access to health care? "/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<Text text="Does the CYCC provide service for treatment for children addicted to substance? "/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<core:Title text="6.12 Access to education, schooling and early childhood development"/>
+											<Text
+												text="Does children admitted at the Child and Youth Care Center have access to schooling, training institution Early Childhood Development Center? "/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<core:Title text="6.13 Security measures for child and youth care centers"/>
+											<Text text="Is the child-staff ratio adequate for number of children including gender and age group? "/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<Text text="Does the CYCC have a drawn up emergency plan? "/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<Text text="Does all staff employed at the CYCC cleared in terms of section 126 ?"/>
+											<HBox width="100%">
+												<items>
+													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
+														<buttons>
+															<RadioButton selected="true" text="YES"/>
+															<RadioButton text="NO"/></buttons>
+													</RadioButtonGroup>
+													<RatingIndicator class="sapUiSmallMarginBegin"/>
+												</items>
+											</HBox>
+											<Text
+												text="Total y/13 x100= % For CYCC that did not meet the 60% compliance, indicate plans and time frame to be put in place to address the developmental areas."/>
+											<TextArea/>
+											<Label text="Date to put plans into action" width="100%"/>
+											<Input width="100%"/>
+											<Label text="Review date of the plan " width="100%"/>
+											<Input width="100%"/>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+									<FlexBox width="100%" alignContent="Center" alignItems="Center" justifyContent="Center">
+										<items>
+											<Button text="Previous" icon="sap-icon://navigation-left-arrow" width="auto" press="onRecordNextPress" class="sapUiTinyMarginEnd"/>
+											<Button text="Next" width="auto" icon="sap-icon://navigation-right-arrow" press="onNormsNextPress" iconFirst="false"/>
+										</items>
+									</FlexBox>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter text="COMMENTS" icon="sap-icon://notification-2" iconColor="Critical" key="Icon6">
+								<content>
+									<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout" id="__form6">
+										<sap.ui.layout.form:content>
+											<core:Title text="GENERAL COMMENTS" icon="sap-icon://notification-2"/>
+											<Label text="General Comments"/>
+											<TextArea id="__area7"/>
+											<Label text="Social Worker" width="100%"/>
+											<Input width="100%" id="__input30"/>
+											<Label text="Region" width="100%"/>
+											<Input width="100%" id="__input31"/>
+											<Label text="Date" width="100%"/>
+											<DatePicker width="100%" id="__picker1"/>
+											<Label text="Signature" width="100%"/><TextArea placeholder="Sign here"/></sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+									<FlexBox width="100%" alignContent="Center" alignItems="Center" justifyContent="Center">
+										<items>
+											<Button text="Previous" icon="sap-icon://navigation-left-arrow" width="auto" press="onProgramNextPress" class="sapUiTinyMarginEnd"/>
+										</items>
+									</FlexBox>
+								</content>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</content>
+				<footer>
+					<Toolbar width="100%">
+						<content>
+							<Button xmlns="sap.m" text="Cancel" press="action" xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+								action:wiring="\{'press':\{'navigation':\{'routeName':'LandingPage'\}\}\}" type="Reject"/>
+							<ToolbarSpacer/>
+							<Button text="Submit" type="Accept" enabled="false"/>
+						</content>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
