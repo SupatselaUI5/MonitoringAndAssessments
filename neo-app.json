@@ -40,6 +40,15 @@
         "version": "1.38.39"
       },
       "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/sap/opu/odata",
+      "target": {
+        "type": "destination",
+        "name": "Gateway",
+        "entryPath": "/sap/opu/odata"
+      },
+      "description": "Gateway Connection"
     }
   ],
   "sendWelcomeFileRedirect": true
