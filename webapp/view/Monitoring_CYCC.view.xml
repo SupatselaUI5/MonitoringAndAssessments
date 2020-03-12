@@ -1,10 +1,13 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
-	controllerName="gdsd.Monitoring.controller.Monitoring_CYCC">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="gdsd.Monitoring.controller.Monitoring_CYCC">
 	<App>
 		<pages>
 			<Page>
 				<content>
-					<ObjectHeader title="CYCC Organisation" intro="location" introActive="true" titleActive="true" icon="sap-icon://functional-location"/>
+					<ObjectHeader title="CYCC Organisation" intro="location" introActive="true" titleActive="true" icon="sap-icon://functional-location">
+					    <attributes>
+					        <ObjectAttribute text="BP Number"/>
+					    </attributes>
+					</ObjectHeader>
 					<IconTabBar id="IconBar">
 						<items>
 							<IconTabFilter text="IDENTIFY" icon="sap-icon://account" key="Icon1">
@@ -157,11 +160,9 @@
 									<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout" id="__form5">
 										<sap.ui.layout.form:content>
 											<core:Title text="6. NORMS AND STANDARDS" icon="sap-icon://list"/>
-											<Text
-												text="Use all the compliance indicators for measurement Formula: number of compliant indicator divided by a total number of indicators x 100 = percentage performance per facility (%) e.g. Y (total number of standards CYCC compliant with) x 100 13 (total number of norms and standards) &#9; = %"/>
+											<Text text="Use all the compliance indicators for measurement Formula: number of compliant indicator divided by a total number of indicators x 100 = percentage performance per facility (%) e.g. Y (total number of standards CYCC compliant with) x 100 13 (total number of norms and standards) &#9; = %"/>
 											<core:Title text="6.1 Residential Care Programme"/>
-											<Text
-												text="Does the CYCC have reasonable measures in place to ensure that staff and children are safe from the risk of fire, accidents and hazards? "/>
+											<Text text="Does the CYCC have reasonable measures in place to ensure that staff and children are safe from the risk of fire, accidents and hazards? "/>
 											<HBox width="100%">
 												<items>
 													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
@@ -172,8 +173,7 @@
 													<RatingIndicator class="sapUiSmallMarginBegin"/>
 												</items>
 											</HBox>
-											<Text
-												text="Does the CYCC provide a the service in a safe environment where children are protected from physical, social and emotional harm?"/>
+											<Text text="Does the CYCC provide a the service in a safe environment where children are protected from physical, social and emotional harm?"/>
 											<HBox width="100%">
 												<items>
 													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
@@ -196,8 +196,7 @@
 													<RatingIndicator class="sapUiSmallMarginBegin"/>
 												</items>
 											</HBox>
-											<Text
-												text="Does the CYCC provide effective and appropriate developmental assessment and referral services which will lead to an appropriate placement"/>
+											<Text text="Does the CYCC provide effective and appropriate developmental assessment and referral services which will lead to an appropriate placement"/>
 											<HBox width="100%">
 												<items>
 													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
@@ -394,8 +393,7 @@
 												</items>
 											</HBox>
 											<core:Title text="6.12 Access to education, schooling and early childhood development"/>
-											<Text
-												text="Does children admitted at the Child and Youth Care Center have access to schooling, training institution Early Childhood Development Center? "/>
+											<Text text="Does children admitted at the Child and Youth Care Center have access to schooling, training institution Early Childhood Development Center? "/>
 											<HBox width="100%">
 												<items>
 													<RadioButtonGroup width="100%" columns="2" selectedIndex="-1">
@@ -440,8 +438,7 @@
 													<RatingIndicator class="sapUiSmallMarginBegin"/>
 												</items>
 											</HBox>
-											<Text
-												text="Total y/13 x100= % For CYCC that did not meet the 60% compliance, indicate plans and time frame to be put in place to address the developmental areas."/>
+											<Text text="Total y/13 x100= % For CYCC that did not meet the 60% compliance, indicate plans and time frame to be put in place to address the developmental areas."/>
 											<TextArea/>
 											<Label text="Date to put plans into action" width="100%"/>
 											<Input width="100%"/>
@@ -485,8 +482,7 @@
 				<footer>
 					<Toolbar width="100%">
 						<content>
-							<Button xmlns="sap.m" text="Cancel" press="action" xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
-								action:wiring="\{'press':\{'navigation':\{'routeName':'LandingPage'\}\}\}" type="Reject"/>
+							<Button xmlns="sap.m" xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" text="Cancel" press="action" action:wiring="\{'press':\{'navigation':\{'routeName':'LandingPage'\}\}\}" type="Reject"/>
 							<ToolbarSpacer/>
 							<Button text="Submit" type="Accept" enabled="false"/>
 						</content>

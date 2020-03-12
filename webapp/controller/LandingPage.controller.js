@@ -12,38 +12,39 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			onInit: function () {
 				//Today's date for date of visit
 				this.byId("DP_Visit").setDateValue(new Date());
+				this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+				this.oRouter.getRoute("LandingPage").attachPatternMatched(this._onObjectMatched, this);
+			},
+
+			_onObjectMatched: function () {
 				
+				sap.ui.core.BusyIndicator.show();
+				this._oODataModel = this.getOwnerComponent().getModel();
+				this._oODataModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
+				this._oODataModel.read("/GET_BPSet('245')", {
+					//User details retrieved successfully
+					success: (function (oData) {
+						// console.log("Success " + oData);
+						this.byId("form0").setModel(this._oODataModel);
+						this.byId("form0").bindElement({
+							path: "/GET_BPSet('245')"
+							// use OData parameters here if needed
+						});
+						sap.ui.core.BusyIndicator.hide();
+						// this.getView().setModel(this._oODataModel);
+						// this.byId("tblOfficial").setModel(this._oODataModel);
+						// this.byId("inpOffName").bindElement({path : "/GET_BPSet('245')"});
+					}).bind(this),
+					error: (function (e, x, r) {
+						// console.log("Error " + e);
+					})
+				});
 			},
 
 			onNavBack: function () {
-			
-						var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-						oRouter.navTo("RouteHomePage", true);
-				}
-				/**
-				 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
-				 * (NOT before the first rendering! onInit() is used for that one!).
-				 * @memberOf gdsd.Monitoring.view.LandingPage
-				 */
-				//	onBeforeRendering: function() {
-				//
-				//	},
-				/**
-				 * Called when the View has been rendered (so its HTML is part of the document). Post-rendering manipulations of the HTML could be done here.
-				 * This hook is the same one that SAPUI5 controls get after being rendered.
-				 * @memberOf gdsd.Monitoring.view.LandingPage
-				 */
-				//	onAfterRendering: function() {
-				//
-				//	},
-				/**
-				 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
-				 * @memberOf gdsd.Monitoring.view.LandingPage
-				 */
-				//	onExit: function() {
-				//
-				//	}
-				,
+					var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+					oRouter.navTo("RouteHomePage", true);
+				},
 			/**
 			 *@memberOf gdsd.Monitoring.controller.LandingPage
 			 */
