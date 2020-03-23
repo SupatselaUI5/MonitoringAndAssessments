@@ -1,50 +1,78 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="gdsd.Monitoring.controller.HomePage" displayBlock="true">
-		<Shell >
+		<Shell>
 		<App id="app">
 			<pages>
 			<Page backgroundDesign="Solid">
 					<content>
-					    <HBox width="100%" alignContent="Center" alignItems="Center" justifyContent="Center">
-					        <items>
-					            <Image src="pictures/social.jpg" width="100%" height="150px" backgroundPosition="center"/>
-					        </items>
-					    </HBox>
-					    <sap.ui.layout.form:Form xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" >
-					        <sap.ui.layout.form:formContainers>
-					            <sap.ui.layout.form:FormContainer >
-					                <sap.ui.layout.form:formElements>
-					                    <sap.ui.layout.form:FormElement label="Program Type">
-					                        <sap.ui.layout.form:fields>
-					                            <Input width="100%" showValueHelp="true"/>
-					                        </sap.ui.layout.form:fields>
-					                    </sap.ui.layout.form:FormElement>
-					                    <sap.ui.layout.form:FormElement xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:sap.ui.layout.form="sap.ui.layout.form">
-					                    </sap.ui.layout.form:FormElement>
-					                    <sap.ui.layout.form:FormElement xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:sap.ui.layout.form="sap.ui.layout.form" label="Activity">
-					                        <sap.ui.layout.form:fields>
-					                            <Input width="100%"  showValueHelp="true"/>
-					                        </sap.ui.layout.form:fields>
-					                    </sap.ui.layout.form:FormElement>
-					                    <sap.ui.layout.form:FormElement xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:sap.ui.layout.form="sap.ui.layout.form" label="Organisation">
-					                        <sap.ui.layout.form:fields>
-					                            <Input width="100%"  showValueHelp="true"/>
-					                        </sap.ui.layout.form:fields>
-					                    </sap.ui.layout.form:FormElement>
-					                </sap.ui.layout.form:formElements>
-					            </sap.ui.layout.form:FormContainer>
-					        </sap.ui.layout.form:formContainers>
-					        <sap.ui.layout.form:layout>
-					            <sap.ui.layout.form:ResponsiveGridLayout />
-					        </sap.ui.layout.form:layout></sap.ui.layout.form:Form>
+					    <!--<HBox width="100%" alignContent="Center" alignItems="Center" justifyContent="Center">-->
+					    <!--    <items>-->
+					    <!--        <Image src="pictures/social.jpg" width="100%" height="150px" backgroundPosition="center"/>-->
+					    <!--    </items>-->
+					    <!--</HBox>-->
+					    <!--<sap.ui.layout.form:Form xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" >-->
+					    <!--    <sap.ui.layout.form:formContainers>-->
+					    <!--        <sap.ui.layout.form:FormContainer >-->
+					    <!--            <sap.ui.layout.form:formElements>-->
+					    <!--                <sap.ui.layout.form:FormElement label="Program Type">-->
+					    <!--                    <sap.ui.layout.form:fields>-->
+					    <!--                        <Input width="100%" showValueHelp="true"/>-->
+					    <!--                    </sap.ui.layout.form:fields>-->
+					    <!--                </sap.ui.layout.form:FormElement>-->
+					    <!--                <sap.ui.layout.form:FormElement xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:sap.ui.layout.form="sap.ui.layout.form">-->
+					    <!--                </sap.ui.layout.form:FormElement>-->
+					    <!--                <sap.ui.layout.form:FormElement xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:sap.ui.layout.form="sap.ui.layout.form" label="Activity">-->
+					    <!--                    <sap.ui.layout.form:fields>-->
+					    <!--                        <Input width="100%"  showValueHelp="true"/>-->
+					    <!--                    </sap.ui.layout.form:fields>-->
+					    <!--                </sap.ui.layout.form:FormElement>-->
+					    <!--                <sap.ui.layout.form:FormElement xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:sap.ui.layout.form="sap.ui.layout.form" label="Organisation">-->
+					    <!--                    <sap.ui.layout.form:fields>-->
+					    <!--                        <Input width="100%"  showValueHelp="true"/>-->
+					    <!--                    </sap.ui.layout.form:fields>-->
+					    <!--                </sap.ui.layout.form:FormElement>-->
+					    <!--            </sap.ui.layout.form:formElements>-->
+					    <!--        </sap.ui.layout.form:FormContainer>-->
+					    <!--    </sap.ui.layout.form:formContainers>-->
+					    <!--    <sap.ui.layout.form:layout>-->
+					    <!--        <sap.ui.layout.form:ResponsiveGridLayout />-->
+					    <!--    </sap.ui.layout.form:layout></sap.ui.layout.form:Form>-->
+					<ObjectHeader xmlns="sap.m" title="{But000/NameFirst} {But000/NameLast}" intro="Today's Date" icon="pictures/icon.jpg" id="objHeaderSW">
+					    </ObjectHeader>
+					<List noDataText="Drop list items here" id="list0">
+					<items>
+					    <ObjectListItem type="Navigation" title="Org Name" number="Case Number" press="action" xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" action:wiring="\{'press':\{'navigation':\{'routeName':'Monitoring_CYCC'\}\}\}">
+					        <attributes>
+					            <ObjectAttribute text="Date"/>
+					        </attributes>
+					        <firstStatus>
+					            <ObjectStatus text="Case Type"/>
+					        </firstStatus></ObjectListItem>
+					    <ObjectListItem type="Navigation" title="Org Name" number="Case Number" id="item2" press="action" xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" action:wiring="\{'press':\{'navigation':\{'routeName':'Monitoring_CYCC'\}\}\}">
+					        <attributes>
+					            <ObjectAttribute text="Date"/>
+					        </attributes>
+					        <firstStatus>
+					            <ObjectStatus text="Case Type"/>
+					        </firstStatus></ObjectListItem>
+					    <ObjectListItem type="Navigation" title="Org Name" number="Case Number" press="action" xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" action:wiring="\{'press':\{'navigation':\{'routeName':'Monitoring_CYCC'\}\}\}">
+					        <attributes>
+					            <ObjectAttribute text="Date"/>
+					        </attributes>
+					        <firstStatus>
+					            <ObjectStatus text="Case Type"/>
+					        </firstStatus></ObjectListItem>
+					</items>
+					<headerToolbar>
+					    <Toolbar width="100%" id="toolbar2">
+					        <content>
+					            <SearchField xmlns="sap.m" placeholder="Search for case" id="field0"/>
+					            <ToolbarSpacer id="spacer1"/>
+					            <Button xmlns="sap.m" icon="sap-icon://filter" type="Emphasized"/>
+					        </content>
+					    </Toolbar>
+					</headerToolbar>
+					</List>
 					</content>
-				<footer>
-				    <Toolbar class="sapContrast sapContrastPlus" width="100%" >
-				        <content>
-				            <ToolbarSpacer/>
-				            <Button text="Proceed"  type="Accept" press="action" xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" action:wiring="\{'press':\{'navigation':\{'routeName':'LandingPage'\}\}\}"/>
-				        </content>
-				    </Toolbar>
-				</footer>
 				</Page>
 			</pages>
 		</App>

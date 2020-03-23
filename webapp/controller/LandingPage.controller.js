@@ -18,27 +18,27 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
 			_onObjectMatched: function () {
 				
-				sap.ui.core.BusyIndicator.show();
-				this._oODataModel = this.getOwnerComponent().getModel();
-				this._oODataModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
-				this._oODataModel.read("/GET_BPSet('245')", {
-					//User details retrieved successfully
-					success: (function (oData) {
-						// console.log("Success " + oData);
-						this.byId("form0").setModel(this._oODataModel);
-						this.byId("form0").bindElement({
-							path: "/GET_BPSet('245')"
-							// use OData parameters here if needed
-						});
-						sap.ui.core.BusyIndicator.hide();
-						// this.getView().setModel(this._oODataModel);
-						// this.byId("tblOfficial").setModel(this._oODataModel);
-						// this.byId("inpOffName").bindElement({path : "/GET_BPSet('245')"});
-					}).bind(this),
-					error: (function (e, x, r) {
-						// console.log("Error " + e);
-					})
-				});
+				// sap.ui.core.BusyIndicator.show();
+				// this._oODataModel = this.getOwnerComponent().getModel();
+				// this._oODataModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
+				// this._oODataModel.read("/GET_BPSet", {
+				// 	//User details retrieved successfully
+				// 	success: (function (oData) {
+				// 		// console.log("Success " + oData);
+				// 		this.byId("form0").setModel(this._oODataModel);
+				// 		this.byId("form0").bindElement({
+				// 			path: "/GET_BPSet('245')"
+				// 			// use OData parameters here if needed
+				// 		});
+				// 		sap.ui.core.BusyIndicator.hide();
+				// 		// this.getView().setModel(this._oODataModel);
+				// 		// this.byId("tblOfficial").setModel(this._oODataModel);
+				// 		// this.byId("inpOffName").bindElement({path : "/GET_BPSet('245')"});
+				// 	}).bind(this),
+				// 	error: (function (e, x, r) {
+				// 		// console.log("Error " + e);
+				// 	})
+				// });
 			},
 
 			onNavBack: function () {

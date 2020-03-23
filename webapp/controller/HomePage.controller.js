@@ -3,15 +3,43 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
 	return Controller.extend("gdsd.Monitoring.controller.HomePage", {
 		onInit: function () {
 			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			this.oRouter.getRoute("RouteHomePage").attachPatternMatched(this._onObjectMatched, this);
+			// this.oRouter.getRoute("RouteHomePage").attachPatternMatched(this._onObjectMatched, this);
+			this.onBindSWBP();
+			var today = new Date();
+			var date = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate();
+			this.byId("objHeaderSW").setIntro(date);
 		},
-		
-		_onObjectMatched:function(){
-			
+
+		_onObjectMatched: function () {
+
 		},
-		/**
-		 *@memberOf gdsd.Monitoring.controller.HomePage
-		 */
+
+		onBindSWBP: function () {
+				// sap.ui.core.BusyIndicator.show();
+				this._oODataModel = this.getOwnerComponent().getModel();
+				this._oODataModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
+				this._oODataModel.read("/GET_BPSet('245')", {
+					//User details retrieved successfully
+					success: (function (oData) {
+						// console.log("Success " + oData);
+						this.byId("objHeaderSW").setModel(this._oODataModel);
+						this.byId("objHeaderSW").bindElement({
+							path: "/GET_BPSet('245')"
+								// use OData parameters here if needed
+						});
+						sap.ui.core.BusyIndicator.hide();
+						// this.getView().setModel(this._oODataModel);
+						// this.byId("tblOfficial").setModel(this._oODataModel);
+						// this.byId("inpOffName").bindElement({path : "/GET_BPSet('245')"});
+					}).bind(this),
+					error: (function (e, x, r) {
+						// console.log("Error " + e);
+					})
+				});
+			},
+			/**
+			 *@memberOf gdsd.Monitoring.controller.HomePage
+			 */
 		action: function (oEvent) {
 			var that = this;
 			var actionParameters = JSON.parse(oEvent.getSource().data("wiring").replace(/'/g, "\""));
