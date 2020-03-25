@@ -18,13 +18,13 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
 				// sap.ui.core.BusyIndicator.show();
 				this._oODataModel = this.getOwnerComponent().getModel();
 				this._oODataModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
-				this._oODataModel.read("/GET_BPSet('245')", {
+				this._oODataModel.read("/GET_BPSet('1000000022')", {
 					//User details retrieved successfully
 					success: (function (oData) {
 						// console.log("Success " + oData);
 						this.byId("objHeaderSW").setModel(this._oODataModel);
 						this.byId("objHeaderSW").bindElement({
-							path: "/GET_BPSet('245')"
+							path: "/GET_BPSet('1000000022')"
 								// use OData parameters here if needed
 						});
 						sap.ui.core.BusyIndicator.hide();
