@@ -129,6 +129,10 @@
 				"Monitoring_CYCC": {
 					"viewType": "XML",
 					"viewName": "Monitoring_CYCC"
+				},
+				"App": {
+					"viewType": "XML",
+					"viewName": "App"
 				}
 			}
 		}
